@@ -147,7 +147,7 @@ class GeventThreadPool(Group):
 	def callInThreadWithCallback(self,onResult,func,*args,**kwargs):
 		"""Call a callable object in a separate greenlet and call onResult with the return value."""
 		if self.open:
-			def task():
+			def task(*args, **kwargs):
 				try:
 					res = func(*args,**kwargs)
 				except:
